@@ -98,7 +98,7 @@ BuildWithMSBuild()
     export PATH=$msBuildDir:$PATH
     CheckExitCode MSBuild.exe $slnFile //p:Configuration=Release //p:Platform=x86 //t:Clean //m
     $nuget restore $slnFile
-    CheckExitCode MSBuild.exe $slnFile //p:Configuration=Release //p:Platform=x86 //t:Build //m //p:AllowedReferenceRelatedFileExtensions=.pdb
+    CheckExitCode MSBuild.exe $slnFile //p:Configuration=Release //p:Platform=x86 //t:Build //restore //m //p:AllowedReferenceRelatedFileExtensions=.pdb
 }
 
 BuildWithXbuild()
@@ -106,7 +106,7 @@ BuildWithXbuild()
     export MONO_IOMAP=case
     CheckExitCode msbuild /t:Clean $slnFile
     mono $nuget restore $slnFile
-    CheckExitCode msbuild /p:Configuration=Release /p:Platform=x86 /t:Build /p:AllowedReferenceRelatedFileExtensions=.pdb $slnFile
+    CheckExitCode msbuild /p:Configuration=Release /p:Platform=x86 /t:Build /restore /p:AllowedReferenceRelatedFileExtensions=.pdb $slnFile
 }
 
 LintUI()
@@ -451,7 +451,7 @@ RunGulp
 PackageMono
 PackageMacOS
 PackageMacOSApp
-PackageTestsMono
-PackageTestsWindows
+#PackageTestsMono
+#PackageTestsWindows
 PackageWindows
 PublishArtifacts
