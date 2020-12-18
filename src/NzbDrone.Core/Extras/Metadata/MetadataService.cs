@@ -316,11 +316,11 @@ namespace NzbDrone.Core.Extras.Metadata
             {
                 var fullPath = Path.Combine(series.Path, image.RelativePath);
 
-                if (_diskProvider.FileExists(fullPath))
-                {
-                    _logger.Debug("Series image already exists: {0}", fullPath);
-                    continue;
-                }
+                //if (_diskProvider.FileExists(fullPath))
+                //{
+                //    _logger.Debug("Series image already exists: {0}", fullPath);
+                //    continue;
+                //}
 
                 _otherExtraFileRenamer.RenameOtherExtraFile(series, fullPath);
 
@@ -353,11 +353,11 @@ namespace NzbDrone.Core.Extras.Metadata
                 {
                     var fullPath = Path.Combine(series.Path, image.RelativePath);
 
-                    if (_diskProvider.FileExists(fullPath))
-                    {
-                        _logger.Debug("Season image already exists: {0}", fullPath);
-                        continue;
-                    }
+                    //if (_diskProvider.FileExists(fullPath))
+                    //{
+                    //    _logger.Debug("Season image already exists: {0}", fullPath);
+                    //    continue;
+                    //}
 
                     _otherExtraFileRenamer.RenameOtherExtraFile(series, fullPath);
 
@@ -391,11 +391,11 @@ namespace NzbDrone.Core.Extras.Metadata
             {
                 var fullPath = Path.Combine(series.Path, image.RelativePath);
 
-                if (_diskProvider.FileExists(fullPath))
-                {
-                    _logger.Debug("Episode image already exists: {0}", fullPath);
-                    continue;
-                }
+                //if (_diskProvider.FileExists(fullPath))
+                //{
+                //    _logger.Debug("Episode image already exists: {0}", fullPath);
+                //    continue;
+                //}
 
                 _otherExtraFileRenamer.RenameOtherExtraFile(series, fullPath);
 
@@ -446,7 +446,7 @@ namespace NzbDrone.Core.Extras.Metadata
                 }
                 else
                 {
-                    _diskProvider.CopyFile(image.Url, fullPath);
+                    _diskProvider.CopyFile(image.Url, fullPath, true);
                 }
                 _mediaFileAttributeService.SetFilePermissions(fullPath);
             }
