@@ -10,7 +10,10 @@ namespace NzbDrone.Core.MediaCover
         Banner = 2,
         Fanart = 3,
         Screenshot = 4,
-        Headshot = 5
+        Headshot = 5,
+        ClearArt = 6,
+        ClearLogo = 7,
+        Landscape = 8
     }
 
     public class MediaCover : IEmbeddedDocument
