@@ -88,5 +88,9 @@ namespace NzbDrone.Core.Configuration
         int BackupRetention { get; }
 
         CertificateValidationType CertificateValidation { get; }
+
+        // External Services
+        string TmdbApiKey { get; }
+        string FanartApiKey { get; }
     }
 }

@@ -1,6 +1,3 @@
-using System.IO;
-using System.Linq;
-using System.Reflection;
 using FluentValidation;
 using NzbDrone.Common.EnvironmentInfo;
 using NzbDrone.Common.Extensions;
@@ -10,6 +7,9 @@ using NzbDrone.Core.Update;
 using NzbDrone.Core.Validation;
 using NzbDrone.Core.Validation.Paths;
 using Sonarr.Http;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace NzbDrone.Api.Config
 {
@@ -51,6 +51,8 @@ namespace NzbDrone.Api.Config
             SharedValidator.RuleFor(c => c.BackupFolder).IsValidPath().When(c => Path.IsPathRooted(c.BackupFolder));
             SharedValidator.RuleFor(c => c.BackupInterval).InclusiveBetween(1, 7);
             SharedValidator.RuleFor(c => c.BackupRetention).InclusiveBetween(1, 90);
+
+            SharedValidator.RuleFor(c => c.TmdbApiKey).NotEmpty().WithMessage("TMDB API Key is required.");
         }
 
         private HostConfigResource GetHostConfig()
