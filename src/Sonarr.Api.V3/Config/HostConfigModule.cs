@@ -53,6 +53,7 @@ namespace Sonarr.Api.V3.Config
             SharedValidator.RuleFor(c => c.BackupInterval).InclusiveBetween(1, 7);
             SharedValidator.RuleFor(c => c.BackupRetention).InclusiveBetween(1, 90);
 
+            SharedValidator.RuleFor(c => c.TmdbApiKey).NotEmpty().WithMessage("TMDB API Key is required.");
         }
 
         private HostConfigResource GetHostConfig()
