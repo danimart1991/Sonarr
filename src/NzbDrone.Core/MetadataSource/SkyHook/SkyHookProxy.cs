@@ -15,7 +15,7 @@ using NzbDrone.Core.Tv;
 
 namespace NzbDrone.Core.MetadataSource.SkyHook
 {
-    public class SkyHookProxy : IProvideSeriesInfo, ISearchForNewSeries
+    public class SkyHookProxy
     {
         private readonly IHttpClient _httpClient;
         private readonly Logger _logger;

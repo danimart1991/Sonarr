@@ -37,6 +37,8 @@ namespace NzbDrone.Api.Config
         public string BackupFolder { get; set; }
         public int BackupInterval { get; set; }
         public int BackupRetention { get; set; }
+        public string TmdbApiKey { get; set; }
+        public string FanartApiKey { get; set; }
     }
 
     public static class HostConfigResourceMapper
@@ -74,7 +76,9 @@ namespace NzbDrone.Api.Config
                 ProxyBypassLocalAddresses = configService.ProxyBypassLocalAddresses,
                 BackupFolder = configService.BackupFolder,
                 BackupInterval = configService.BackupInterval,
-                BackupRetention = configService.BackupRetention
+                BackupRetention = configService.BackupRetention,
+                TmdbApiKey = configService.TmdbApiKey,
+                FanartApiKey = configService.FanartApiKey
             };
         }
     }

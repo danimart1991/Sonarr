@@ -15,6 +15,7 @@ import LoggingSettings from './LoggingSettings';
 import ProxySettings from './ProxySettings';
 import SecuritySettings from './SecuritySettings';
 import UpdateSettings from './UpdateSettings';
+import ExternalServicesSettings from './ExternalServicesSettings';
 
 const requiresRestartKeys = [
   'bindAddress',
@@ -173,6 +174,12 @@ class GeneralSettings extends Component {
                 />
 
                 <BackupSettings
+                  advancedSettings={advancedSettings}
+                  settings={settings}
+                  onInputChange={onInputChange}
+                />
+
+                <ExternalServicesSettings
                   advancedSettings={advancedSettings}
                   settings={settings}
                   onInputChange={onInputChange}
