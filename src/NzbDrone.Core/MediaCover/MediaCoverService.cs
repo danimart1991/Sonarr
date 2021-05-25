@@ -66,8 +66,9 @@ namespace NzbDrone.Core.MediaCover
         public string GetCoverPath(int seriesId, MediaCoverTypes coverTypes, int? height = null)
         {
             var heightSuffix = height.HasValue ? "-" + height.ToString() : "";
+            var extension = coverTypes.ToString().ToLower().Contains("clear") ? ".png" : ".jpg";
 
-            return Path.Combine(GetSeriesCoverPath(seriesId), coverTypes.ToString().ToLower() + heightSuffix + ".jpg");
+            return Path.Combine(GetSeriesCoverPath(seriesId), coverTypes.ToString().ToLower() + heightSuffix + extension);
         }
 
         public void ConvertToLocalUrls(int seriesId, IEnumerable<MediaCover> covers)
